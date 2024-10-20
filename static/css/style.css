@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    justify-content: center;
+    margin: 0;
+    flex-direction: column;
+    display: flex;
+}
+
+#Header1 {
+    font-size: 48px;
+    color: #f4f4f4;
+}
+
+#time {
+    padding-top: 30px;
+    font-size: 30px;
+    color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-image: url("/static/assets/ClockBackGround.png");
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+ul {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  list-style-type: none;
+  margin:auto;
+  padding: auto;
+  padding-left: 0px;
+}
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  li a:hover {
+    background-color: #c1448e;
+
+  }

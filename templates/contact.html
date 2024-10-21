@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Time Update</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<header>
-    <div>
-        <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        </ul>
-    </div>
-</header>
-<body>
-    <div class="container">
-        <div>
-            <a id="Header1">This is a centered H1 element</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Live Time Update</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style_contact.css') }}">
+    </head>
+    <body>
+        <header>
+            <div>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="container">
+            <div>
+                <a id="Header1" data-text="Reach me at"></a>
+            </div>
+            <div>
+                <!-- Contact Here -->
+            </div>
         </div>
-        <div id="time"></div>
-    </div>
-
-    <script src="{{ url_for('static', filename='js/time.js') }}"></script>
-
-</body>
+        <script src="{{ url_for('static', filename='js/type.js') }}"></script>
+    </body>
 </html>

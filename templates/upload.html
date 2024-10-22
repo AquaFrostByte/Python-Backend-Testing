@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Live Time Update</title>
         <link rel="stylesheet" id="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" id="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
         <link rel="icon" href="{{ url_for('static', filename='assets/feather.png') }}" type="image/x-icon">
     </head>
     <body>
@@ -29,6 +30,36 @@
             </div>
             <div id="time"></div>
         </div>
+        <div>
+            <div class="container_main">
+                <h1>Upload a File</h1>
+                <div class="spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+            </div>
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+            <div id="drop-zone">
+                Drag and drop your file here or click to upload
+            </div>
+            <form id="file-upload-form" method="POST" action="/upload" enctype="multipart/form-data">
+                <input type="file" name="file" id="file-input" style="display: none;">
+                <button type="submit" style="display: none;">Upload</button> <!-- hidden submit button -->
+            </form>
+        </div>
+        <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
         <script src="{{ url_for('static', filename='js/type.js') }}"></script>
         <script src="{{ url_for('static', filename='js/time.js') }}"></script>
         <script src="{{ url_for('static', filename='js/dark-mode.js') }}"></script>

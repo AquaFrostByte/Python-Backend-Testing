@@ -124,3 +124,14 @@ ul li a:hover {
     border-radius: 50%;
   }
 }
+
+.container_main {
+  display: flex;
+}
+.box {
+  width: 45%; /* Adjust the width of the elements */
+  padding: 20px;
+  background-color: #f0f0f0;
+  text-align: center;
+  border: 1px solid #ccc;
+}

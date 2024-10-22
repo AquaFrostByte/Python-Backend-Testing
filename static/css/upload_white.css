@@ -4,25 +4,25 @@
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
-    border: 2px dashed #fafafa;
+    border: 2px dashed #333;
     border-radius: 10px;
     text-align: center;
     font-size: 16px;
-    color: #666;
+    color: #bababa;
     cursor: pointer;
 }
 
 #drop-zone.hover {
     border-color: #c1448e;
-    color: #bababa;
+    color: #333;
 }
 
 h1 {
-    color: #fafafa;
+    color: #333;
 }
 
 li {
-    color: #fafafa;
+    color: #333;
 }
 
 .spinner {

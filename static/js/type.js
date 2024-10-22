@@ -1,5 +1,5 @@
 var i = 0;
-var speed = 100; // Speed in milliseconds
+var speed = 80; // Speed in milliseconds
 
 function typeWriter() {
   var header = document.getElementById("Header1");

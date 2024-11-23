@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Live Time Update</title>
         <link rel="stylesheet" id="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-        <link rel="icon" href="{{ url_for('static', filename='assets/feather.png') }}" type="image/x-icon">
+        <link rel="icon" id="icon" href="{{ url_for('static', filename='assets/feather.png') }}" type="image/x-icon">
     </head>
     <body>
         <header>
@@ -21,6 +21,7 @@
                         <li><a href="{{ url_for('upload') }}">Upload!</a></li>
                         <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     </ul>
+                    <img src="{{ url_for('static', filename='assets/feather.png') }}" id="pfp">
                 </div>
         </header>
         <div class="container">

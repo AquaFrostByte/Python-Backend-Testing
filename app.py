@@ -3,6 +3,7 @@ from flask_socketio import SocketIO, emit
 from datetime import datetime
 import os
 import time
+import uuid
 
 app = Flask(__name__)
 
@@ -33,6 +34,10 @@ def contact():
 def upload():
     return render_template('upload.html')
 
+@app.route('/pfpupload')
+def pfpupload():
+    return render_template('pfpupload.html')
+
 # Background thread for sending time updates via WebSocket
 def background_time_thread():
     while True:
@@ -50,7 +55,6 @@ def allowed_file(filename):
     """Check if the file has an allowed extension"""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/upload', methods=['POST'])
 def upload_file():
     # Check if the POST request has the file part
     if 'file' not in request.files:
@@ -65,14 +69,24 @@ def upload_file():
         return redirect(request.url)
     
     if file and allowed_file(file.filename):
-        filename = file.filename
+        # Generate a unique filename using UUID to prevent conflicts
+        filename = f"{uuid.uuid4()}_{file.filename}"
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        
         # Save the file to the uploads folder
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        file.save(file_path)
+        
+        # Emit the new profile picture URL to the client
+        image_url = url_for('uploaded_file', filename=filename)
         flash('File successfully uploaded')
-        return redirect(url_for('upload'))  # Redirect to the upload page
+        return {'image_url': image_url}, 200
     
     flash('File type not allowed')
     return redirect(url_for('upload'))
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return redirect(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
